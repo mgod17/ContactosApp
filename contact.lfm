@@ -1,0 +1,40 @@
+object Contact: TContact
+  OldCreateOrder = False
+  Height = 150
+  HorizontalOffset = 2426
+  VerticalOffset = 248
+  Width = 150
+  object connect: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = True
+    Catalog = 'infoserver'
+    Properties.Strings = (
+      'AutoEncodeStrings=True'
+      'controls_cp=CP_UTF8'
+    )
+    Connected = True
+    HostName = 'localhost'
+    Port = 5432
+    User = 'postgres'
+    Password = 'Gracias0309'
+    Protocol = 'postgresql-8'
+    Left = 28
+    Top = 36
+  end
+  object TbContact: TZQuery
+    Connection = connect
+    Active = True
+    SQL.Strings = (
+      'select * from contactos.personafisica'
+      'order by nombre'
+    )
+    Params = <>
+    Left = 54
+    Top = 96
+  end
+  object DContact: TDataSource
+    DataSet = TbContact
+    Left = 119
+    Top = 46
+  end
+end
